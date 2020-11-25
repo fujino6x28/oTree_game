@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+    Introduction<br>
+    Player {{player.id_in_group}}
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        あなたは共有林から資源を採取して生計を立てています．<br>
+        共有林にアクセスできるプレイヤーは<br>
+        全部で {{players_per_group}} 人います．<br>
+        ゲーム開始時, 共有林には<br>
+        {{pool_start}} の資源があります．<br>
+        <br>
+        あなたは毎ラウンド，<br>
+         0 から {{Constants.max_exploitation}}<br>
+        の資源を採取できます．<br>
+        <br>
+        もし，全員の採取量の合計が共有林の資源量以上なら，<br>
+        ゲームは即座に終了します．<br>
+        <br>
+        もし，共有林に資源が残っていれば，<br>
+        資源量はラウンド終了時に {{Constants.reproduction_rate}} 倍になります．<br>
+        資源量の最大値は {{pool_start}} です．<br>
+        <br>
+        ゲームは {{num_rounds}} ラウンド続きます．<br>
+        <br>
+        あなたの目的は，ゲームが終わるまでに，<br>
+        できるだけ多くの資源を集めることです．<br>
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

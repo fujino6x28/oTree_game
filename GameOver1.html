@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    GameOver1<br>
+    Player {{player.id_in_group}}
+{% endblock %}
+
+{% block content %}
+
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'resource_reproduction/style.css' %}">
+</head>
+
+<body>
+    <p>
+        あなたは {{ player.exploitation }} の資源を採取しました．<br>
+        全員で {{ group.total_exploitation }} の資源を採取しました．<br>
+        <br>
+        既定のラウンドが終わりました．<br>
+        <br>
+        あなたが集めた資源は {{ player.resource }} でした.<br>
+    </p>
+
+    <div id="container3"></div>
+    <script src= "{% static 'resource_reproduction/ChartTotalExploit.js' %}"></script>
+
+    <div id="container4"></div>
+    <script src= "{% static 'resource_reproduction/ChartCurrentPool.js' %}"></script>
+</body>
+
+{% endblock %}
+
+
+{% comment %}
+
+    <div id="container1"></div>
+    <script src= "{% static 'resource_reproduction/ChartExploit.js' %}"></script>
+
+    <div id="container2"></div>
+    <script src= "{% static 'resource_reproduction/ChartResource.js' %}"></script>
+
+{% endcomment %}

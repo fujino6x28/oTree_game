@@ -1,0 +1,70 @@
+{% load otree %}
+
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'resource_reproduction/style.css' %}">
+</head>
+
+<body>
+    {{ exploitation }} <br>
+    {{ resources }} <br>
+    {{ List_current_pool|json }} <br>
+
+    <div id="container_1"></div>
+    <script>
+        Highcharts.chart('container_1', {
+            chart: {
+                type: 'line',
+                plotBorderColor: '#000000',
+                plotBorderWidth: 1
+                    },
+            title: {
+                text: 'Current_Pool'
+            },
+            xAxis: {
+                title: {
+                    text: 'rounds'
+                },
+                allowDecimals: false,
+                lineColor: '#000000',
+                lineWidth: 1,
+                min: 1,
+                max: js_vars.num_rounds,
+                tickColor: '#000000',
+                tickPosition: 'inside'
+            },
+            yAxis: {
+                title: {
+                    text: 'Current_Pool'
+                },
+                allowDecimals: false,
+                gridLineWidth: 0,
+                lineColor: '#000000',
+                lineWidth: 1,
+                min: 0,
+                tickWidth: 1,
+                tickColor: '#000000',
+                tickInterval: 1,
+                tickPosition: 'inside'
+            },
+            plotOptions: {
+                series: {
+                    pointStart: 1
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            series:  [{name: "current_pool", data: [4, 8, 10, 2, 2, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]}]
+        });
+    </script>
+
+</body>
+
+
+
+
+{% comment %}
+     <script src= "{% static 'resource_reproduction/ChartCurrentPool_admin.js' %}"></script>
+{% endcomment %}
